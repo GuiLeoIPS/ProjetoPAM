@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProjetoPAM</string>
+    <string name="pesquisarLivro">Pesquisar Livro</string>
 </resources>
