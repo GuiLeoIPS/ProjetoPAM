@@ -38,7 +38,7 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="404dp"
+        android:layout_width="match_parent"
         android:layout_height="81dp"
         android:background="#CFCECE"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +49,8 @@
         android:id="@+id/imageButton"
         android:layout_width="80dp"
         android:layout_height="62dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginBottom="28dp"
         android:background="#FFFFFF"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/view"
