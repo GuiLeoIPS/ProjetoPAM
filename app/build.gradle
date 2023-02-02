@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'pt.ips.pam.projetopam'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "pt.ips.pam.projetopam"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 

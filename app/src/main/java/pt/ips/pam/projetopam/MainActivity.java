@@ -1,95 +1,72 @@
 package pt.ips.pam.projetopam;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MyDatabaseHelper db;
-
-    private static final String VALOR_USERNAME = "USERNAME";
-    private static final String VALOR_PASSWORD = "PASSWORD";
-
+    MyDatabaseHelper myDB;
+    ArrayList<String> book_id, book_title, book_author, book_pages;
+    CustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        RecyclerView recyclerview;
+        FloatingActionButton add_button;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = new MyDatabaseHelper(MainActivity.this);
-
-        PopulateUsers();
-
-        Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        recyclerview = findViewById(R.id.recyclerView);
+        add_button = findViewById(R.id.add_button);
+        add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pesquisarUser() == 1) {
-                    Intent intent = new Intent(MainActivity.this, BooksActivity.class);
-                    startActivity(intent);
-                };
-
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
             }
         });
 
-        Button btnRegister = (Button) findViewById(R.id.btnRegister);
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        myDB = new MyDatabaseHelper(MainActivity.this);
+        book_id = new ArrayList<>();
+        book_title = new ArrayList<>();
+        book_author = new ArrayList<>();
+        book_pages = new ArrayList<>();
 
-                    Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                    startActivity(intent);
+        storeDataInArrays();
 
-            }
-        });
+        customAdapter = new CustomAdapter(MainActivity.this, book_id, book_title, book_author, book_pages);
+        recyclerview.setAdapter(customAdapter);
+        GridLayoutManager manager = new GridLayoutManager(MainActivity.this, 2, GridLayoutManager.VERTICAL, false);
+        recyclerview.setLayoutManager(manager);
+       // recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
     }
 
-    private int searchUserByName(List<User> list, String username, String password) {
-        int indiceDelete = -1;
-        for (User usr : list) {
-            if (usr.getUsername().equals(username) && usr.getPassword().equals(password))
-                indiceDelete = list.indexOf(usr);
-        }
-        return indiceDelete;
-    }
-
-    private int pesquisarUser() {
-
-        EditText editNome = (EditText) findViewById(R.id.editUsername);
-        EditText editPass = (EditText) findViewById(R.id.editPassword);
-        String nome = editNome.getText().toString();
-        String pass = editPass.getText().toString();
-
-        // get all users
-        List<User> list = db.getAllUsers();
-
-        int indiceDelete = searchUserByName(list, nome, pass);
-
-        if (indiceDelete != -1) {
-            Toast.makeText(this, "Found", Toast.LENGTH_SHORT).show();
-            return 1;
+    void storeDataInArrays() {
+        Cursor cursor = myDB.readAllData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "No data!!", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Not found", Toast.LENGTH_SHORT).show();
-            return 0;
+            while (cursor.moveToNext()) {
+                book_id.add(cursor.getString(0));
+                book_title.add(cursor.getString(1));
+                book_author.add(cursor.getString(2));
+                book_pages.add(cursor.getString(3));
+            }
         }
 
     }
-
-    private void PopulateUsers() {
-        User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", true);
-        User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", true);
-        User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", false);
-        db.addUser(primeiroUser);
-        db.addUser(segundoUser);
-        db.addUser(terceiroUser);
-    }
-
 }

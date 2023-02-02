@@ -4,74 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context="pt.ips.pam.projetopam.MainActivity">
 
-
-    <EditText
-        android:id="@+id/editUsername"
-        android:layout_width="284dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="68dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/ic_password_24"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="@string/insertUsername"
-        android:inputType="textPersonName"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAppName" />
-
-    <EditText
-        android:id="@+id/editPassword"
-        android:layout_width="284dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/ic_password_24"
-        android:drawablePadding="12dp"
-        android:ems="10"
-        android:hint="@string/insertPassword"
-        android:inputType="textPassword"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editUsername" />
-
-    <TextView
-        android:id="@+id/txtAppName"
-        android:layout_width="159dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="88dp"
-        android:text="@string/libraryName"
-        app:autoSizeTextType="uniform"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnLogin"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/btnLogin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
-
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="60dp"
-        android:text="Register"
-        app:layout_constraintStart_toEndOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
-
-
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>
