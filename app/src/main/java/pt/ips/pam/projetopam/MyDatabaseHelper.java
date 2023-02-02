@@ -1,10 +1,16 @@
 package pt.ips.pam.projetopam;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
@@ -12,7 +18,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "biblioteca";
 
-    private static final String TABLE_USER = "users";
+    private static final String TABLE_USER = "user";
     // User Table Columns names
     private static final String COLUMN_IDUSER = "idUser";
     private static final String COLUMN_USERNAME = "username";
@@ -29,8 +35,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_NUMBERPAGES = "numberPages";
 
 
-    public MyDatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public MyDatabaseHelper(@Nullable Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
@@ -54,4 +60,42 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         this.onCreate(db);
     }
+
+    public void addUser(User user){
+
+        Log.d("addUser", user.toString());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, user.getUsername());            // get username
+        values.put(COLUMN_PASSWORD, user.getPassword());            // get pass
+
+        db.insert(TABLE_USER, null, values); // key/value -> keys = column names/ values = column values
+        db.close();
+    }
+
+    public List<User> getAllUsers() {
+        List<User> users = new LinkedList<User>();
+
+        String query = "SELECT * FROM " + TABLE_USER;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        User user = null;
+        if (cursor.moveToFirst()) {
+            do {
+                user = new User();
+                user.setUsername(cursor.getString(1));
+                user.setPassword(cursor.getString(3));
+                users.add(user);
+            } while (cursor.moveToNext());
+        }
+
+        Log.d("getAllUsers()", users.toString());
+        return users;
+    }
+
+
+
 }
