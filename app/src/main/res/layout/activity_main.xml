@@ -7,60 +7,61 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list"
-        android:layout_width="409dp"
-        android:layout_height="575dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPesquisaNome" />
 
     <EditText
-        android:id="@+id/txtPesquisaNome"
-        android:layout_width="276dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/editUsername"
+        android:layout_width="284dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="68dp"
         android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/ic_search"
+        android:drawableStart="@drawable/ic_password_24"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="@string/pesquisarLivro"
+        android:hint="@string/insertUsername"
         android:inputType="textPersonName"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppName" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="284dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_password_24"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/insertPassword"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editUsername" />
+
+    <TextView
+        android:id="@+id/txtAppName"
+        android:layout_width="159dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="88dp"
+        android:text="@string/libraryName"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="81dp"
-        android:background="#CFCECE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="80dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="284dp"
-        android:layout_marginBottom="28dp"
-        android:background="#FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/livro" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
+    <Button
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="view,imageButton" />
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

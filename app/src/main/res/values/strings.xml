@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ProjetoPAM</string>
-    <string name="pesquisarLivro">Pesquisar Livro</string>
+    <string name="searchBook">Search Book</string>
+    <string name="insertUsername">Insert your username</string>
+    <string name="insertPassword">Insert your password</string>
+    <string name="libraryName">Nome Biblioteca</string>
+    <string name="btnLogin">Login</string>
 </resources>
