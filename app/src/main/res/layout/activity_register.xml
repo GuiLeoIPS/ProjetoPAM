@@ -6,13 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="257dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Your username"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/editRegisterEmail"
+        android:layout_width="257dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Your email"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="257dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Your password"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editRegisterEmail" />
+
+    <EditText
+        android:id="@+id/editTelemovel"
+        android:layout_width="257dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Your phone number"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPass" />
+
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="76dp"
         android:text="Voltar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTelemovel" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="190dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="68dp"
+        android:text="Register"
+        android:textStyle="bold|italic"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnAdd"
+        android:layout_width="61dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
+        app:layout_constraintTop_toBottomOf="@+id/editTelemovel"
+        app:srcCompat="@drawable/ic_add" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
