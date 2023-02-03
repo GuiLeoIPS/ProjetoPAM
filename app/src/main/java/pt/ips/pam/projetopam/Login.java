@@ -1,9 +1,13 @@
 package pt.ips.pam.projetopam;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -30,6 +34,17 @@ public class Login extends AppCompatActivity {
         db = new MyDatabaseHelper(Login.this);
         readValues();
         PopulateUsers();
+
+        //Icon
+        Drawable draw = ResourcesCompat.getDrawable(getResources(), R.drawable.libraryicon, this.getTheme());
+        assert draw != null; //Verifica se o mesmo não está vazio
+
+        Bitmap bitmap = ((BitmapDrawable) draw).getBitmap();
+        Drawable icon = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 50, 40, true));
+
+        getSupportActionBar().setHomeAsUpIndicator(icon);        //colocar o novo icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //Enable para mostrar o novo icon
+        //-------------
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
