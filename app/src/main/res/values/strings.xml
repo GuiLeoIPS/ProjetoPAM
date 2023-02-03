@@ -1,8 +1,22 @@
 <resources>
     <string name="app_name">ProjetoPAM</string>
     <string name="searchBook">Search Book</string>
-    <string name="insertUsername">Insert your username</string>
-    <string name="insertPassword">Insert your password</string>
-    <string name="libraryName">Nome Biblioteca</string>
+    <string name="insertUsername">Your username</string>
+    <string name="insertPassword">Your password</string>
+    <string name="insertEmail">Your email</string>
+    <string name="insertPhoneNumber">Your phone number</string>
+    <string name="libraryName">Library Name</string>
     <string name="btnLogin">Login</string>
+    <string name="foundUser">Welcome</string>
+    <string name="notFoundUser">User does not exists</string>
+    <string name="operationFailed">Failed</string>
+    <string name="addBookSucceed">Added Successfully!</string>
+    <string name="updateBookSucceed">Updated Successfully!</string>
+    <string name="deleteBookSucceed">Deleted Successfully!</string>
+    <string name="emptyData">No data!!</string>
+    <string name="emptyStrings">Empty information</string>
+    <string name="error">Error! Try again</string>
+    <string name="createdUser">Your account has been created</string>
+    <string name="registerTitle">Register</string>
+
 </resources>

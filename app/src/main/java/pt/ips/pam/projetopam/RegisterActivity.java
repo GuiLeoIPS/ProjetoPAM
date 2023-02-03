@@ -49,14 +49,15 @@ public class RegisterActivity extends AppCompatActivity {
                     User user = new User(name, mail, pass, number, false);
 
                     if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || password.getText().toString().isEmpty() || phoneNumber.getText().toString().isEmpty()) {
-                        Toast.makeText(RegisterActivity.this, "Campos Vazios", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, R.string.emptyStrings, Toast.LENGTH_SHORT).show();
                     } else {
                         db.addUser(user);
+                        Toast.makeText(RegisterActivity.this, R.string.createdUser, Toast.LENGTH_SHORT).show();
                         finish();
                     }
 
                 } catch(Exception ex) {
-                    Toast.makeText(RegisterActivity.this, "Invalid Data! Try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
                 }
 
 

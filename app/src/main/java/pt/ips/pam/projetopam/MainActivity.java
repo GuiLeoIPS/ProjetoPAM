@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     void storeDataInArrays() {
         Cursor cursor = myDB.readAllData();
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No data!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.emptyData, Toast.LENGTH_SHORT).show();
         } else {
             while (cursor.moveToNext()) {
                 book_id.add(cursor.getString(0));

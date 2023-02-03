@@ -3,7 +3,9 @@ package pt.ips.pam.projetopam;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +28,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         db = new MyDatabaseHelper(Login.this);
-
+        readValues();
         PopulateUsers();
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -34,6 +36,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(pesquisarUser() == 1) {
+                    SaveValues();
                     Intent intent = new Intent(Login.this, MainActivity.class);
                     startActivity(intent);
                 };
@@ -51,6 +54,37 @@ public class Login extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void SaveValues() {
+        EditText editName = findViewById(R.id.editUsername);
+        EditText editPass = findViewById(R.id.editPassword);
+
+        String name = editName.getText().toString();
+        String password = editPass.getText().toString();
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        SharedPreferences.Editor edit = sharedPref.edit();
+        edit.putString(VALOR_USERNAME, name);
+        edit.putString(VALOR_PASSWORD, password);
+
+        edit.commit();
+
+    }
+
+    private void readValues() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String nameSaved = sharedPref.getString(VALOR_USERNAME, "");
+        String passSaved = sharedPref.getString(VALOR_PASSWORD, "");
+
+        EditText editName = findViewById(R.id.editUsername);
+        EditText editPass = findViewById(R.id.editPassword);
+
+        editName.setText(nameSaved);
+        editPass.setText(passSaved);
+
     }
 
     private int searchUserByName(List<User> list, String username, String password) {
@@ -75,10 +109,10 @@ public class Login extends AppCompatActivity {
         int indiceDelete = searchUserByName(list, nome, pass);
 
         if (indiceDelete != -1) {
-            Toast.makeText(this, "Found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getText(R.string.foundUser), Toast.LENGTH_SHORT).show();
             return 1;
         } else {
-            Toast.makeText(this, "Not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getText(R.string.notFoundUser), Toast.LENGTH_SHORT).show();
             return 0;
         }
 
