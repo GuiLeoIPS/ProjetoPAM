@@ -14,7 +14,7 @@
         android:layout_marginTop="152dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="Book Title"
+        android:hint="@string/bookTitle"
 
         android:inputType="textPersonName"
         android:paddingStart="12dp"
@@ -31,7 +31,7 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="Book Author"
+        android:hint="@string/bookAuthor"
 
         android:inputType="textPersonName"
         android:paddingStart="12dp"
@@ -48,7 +48,7 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/custom_input"
         android:ems="10"
-        android:hint="Number of pages"
+        android:hint="@string/bookPages"
 
         android:inputType="number"
         android:paddingStart="12dp"
@@ -63,7 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
-        android:text="Add"
+        android:text="@string/bookBtnAdd"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

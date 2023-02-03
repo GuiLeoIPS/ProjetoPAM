@@ -77,15 +77,15 @@ public class UpdateActivity extends AppCompatActivity {
             pages_input.setText(pages);
             Log.d("stev", title+" "+author+" "+pages);
         }else{
-            Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.emptyData, Toast.LENGTH_SHORT).show();
         }
     }
 
     void confirmDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("DELETE " + title + " ? ");
-        builder.setMessage("Are you sure you want to delete " + title + " ? ");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setTitle(getResources().getText(R.string.confirmBookDelete) +" " + title + " ? ");
+        builder.setMessage(getResources().getText(R.string.confirmDialogBookDelete)+ " " + title + " ? ");
+        builder.setPositiveButton( R.string.confirmYes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
@@ -93,7 +93,7 @@ public class UpdateActivity extends AppCompatActivity {
                 finish();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.confirmNo, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 

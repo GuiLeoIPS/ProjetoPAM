@@ -160,7 +160,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         if(result == -1){
             Toast.makeText(context, R.string.operationFailed, Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(context, "Deleted Successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.deleteBookSucceed, Toast.LENGTH_SHORT).show();
         }
     }
 

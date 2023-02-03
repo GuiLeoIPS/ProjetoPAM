@@ -7,6 +7,7 @@
     <string name="insertPhoneNumber">Your phone number</string>
     <string name="libraryName">Library Name</string>
     <string name="btnLogin">Login</string>
+    <string name="btnRegister">Register</string>
     <string name="foundUser">Welcome</string>
     <string name="notFoundUser">User does not exists</string>
     <string name="operationFailed">Failed</string>
@@ -18,5 +19,15 @@
     <string name="error">Error! Try again</string>
     <string name="createdUser">Your account has been created</string>
     <string name="registerTitle">Register</string>
+    <string name="bookAuthor">Book Author</string>
+    <string name="bookTitle">Book Title</string>
+    <string name="bookPages">Number of pages</string>
+    <string name="bookBtnAdd">Add</string>
+    <string name="bookBtnUpdate">Update</string>
+    <string name="bookBtnDelete">Delete</string>
+    <string name="confirmBookDelete">DELETE</string>
+    <string name="confirmDialogBookDelete">Are you sure you want to delete</string>
+    <string name="confirmYes">Yes</string>
+    <string name="confirmNo">No</string>
 
 </resources>
