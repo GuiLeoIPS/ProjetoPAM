@@ -31,6 +31,7 @@ public class UpdateActivity extends AppCompatActivity {
         //First we call this
         getAndSetIntentData();
 
+
         //Set actionbar title after getAndSetIntentData method
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
@@ -40,9 +41,14 @@ public class UpdateActivity extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //And only then we call this
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateActivity.this);
+                title = title_input.getText().toString().trim();
+                author = author_input.getText().toString().trim();
+                pages = pages_input.getText().toString().trim();
+                myDB.updateData(id, title, author, pages);
             }
         });
-
     }
 
     void getAndSetIntentData(){
