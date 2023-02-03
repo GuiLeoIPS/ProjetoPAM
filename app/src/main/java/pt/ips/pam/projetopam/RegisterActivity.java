@@ -47,9 +47,14 @@ public class RegisterActivity extends AppCompatActivity {
                     MyDatabaseHelper db = new MyDatabaseHelper(RegisterActivity.this);
 
                     User user = new User(name, mail, pass, number, false);
-                    db.addUser(user);
-                    Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                    finish();
+
+                    if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || password.getText().toString().isEmpty() || phoneNumber.getText().toString().isEmpty()) {
+                        Toast.makeText(RegisterActivity.this, "Campos Vazios", Toast.LENGTH_SHORT).show();
+                    } else {
+                        db.addUser(user);
+                        finish();
+                    }
+
                 } catch(Exception ex) {
                     Toast.makeText(RegisterActivity.this, "Invalid Data! Try again", Toast.LENGTH_SHORT).show();
                 }
