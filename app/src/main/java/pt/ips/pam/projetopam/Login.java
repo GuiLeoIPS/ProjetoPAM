@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if(pesquisarUser() == 1) {
                     SaveValues();
-                    Intent intent = new Intent(Login.this, MainActivity.class);
+                    Intent intent = new Intent(Login.this, HomeActivity.class);
                     startActivity(intent);
                 };
 
