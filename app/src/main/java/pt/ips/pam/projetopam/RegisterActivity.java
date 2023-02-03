@@ -14,11 +14,18 @@ public class RegisterActivity extends AppCompatActivity {
 
     private EditText username, email, password, phoneNumber;
 
+    private void startVariables() {
+        username = findViewById(R.id.editName);
+        email = findViewById(R.id.editRegisterEmail);
+        password = findViewById(R.id.editPass);
+        phoneNumber = findViewById(R.id.editTelemovel);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        startVariables();
         Button btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,15 +39,14 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    username = findViewById(R.id.editName);
-                    email = findViewById(R.id.editRegisterEmail);
-                    password = findViewById(R.id.editPass);
-                    phoneNumber = findViewById(R.id.editTelemovel);
-                    if(username.getText().toString() == "") {
-                        Toast.makeText(RegisterActivity.this, "No", Toast.LENGTH_SHORT).show();
-                    }
-                    User user = new User(username.getText().toString(), email.getText().toString(), password.getText().toString(), phoneNumber.getText().toString(), false);
+                    String name = username.getText().toString();
+                    String mail = email.getText().toString();
+                    String pass = password.getText().toString();
+                    String number = phoneNumber.getText().toString();
+
                     MyDatabaseHelper db = new MyDatabaseHelper(RegisterActivity.this);
+
+                    User user = new User(name, mail, pass, number, false);
                     db.addUser(user);
                     Toast.makeText(RegisterActivity.this, "User Created", Toast.LENGTH_SHORT).show();
                     finish();

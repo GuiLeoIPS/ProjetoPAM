@@ -50,7 +50,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_USER_TABLE = "CREATE TABLE user ( " +
                 "idUser INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "username TEXT UNIQUE, "+
+                "username TEXT, "+
                 "email TEXT, "+
                 "password TEXT, "+
                 "number TEXT, "+
@@ -83,8 +83,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USERNAME, user.getUsername());            // get username
-        values.put(COLUMN_EMAIL, user.getEmail());            // get username
-        values.put(COLUMN_NUMBER, user.getNumber());            // get username
         values.put(COLUMN_PASSWORD, user.getPassword());            // get pass
 
         db.insert(TABLE_USER, null, values); // key/value -> keys = column names/ values = column values
