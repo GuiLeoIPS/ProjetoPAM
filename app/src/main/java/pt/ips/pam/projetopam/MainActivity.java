@@ -1,5 +1,6 @@
 package pt.ips.pam.projetopam;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -8,10 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
@@ -29,6 +33,37 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_books);
+
+        bottomNavigationView.setSelectedItemId(R.id.books);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+
+                switch(item.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.user:
+                        startActivity(new Intent(getApplicationContext(), UsersActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.books:
+                        return true;
+
+                }
+
+
+
+                return false;
+            }
+        });
+
 
         recyclerview = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
