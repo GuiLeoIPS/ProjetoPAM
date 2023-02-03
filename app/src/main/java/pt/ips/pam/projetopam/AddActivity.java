@@ -2,6 +2,7 @@ package pt.ips.pam.projetopam;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,8 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        Intent intent = new Intent(AddActivity.this, MainActivity.class);
+
 
         title_input = findViewById(R.id.title_input);
         author_input = findViewById(R.id.author_input);
@@ -28,7 +31,8 @@ public class AddActivity extends AppCompatActivity {
                 myDB.addBook(title_input.getText().toString().trim(),
                         author_input.getText().toString().trim(),
                         Integer.valueOf(pages_input.getText().toString().trim()));
-                        finish();
+                finish();
+                startActivity(intent);
             }
         });
     }
