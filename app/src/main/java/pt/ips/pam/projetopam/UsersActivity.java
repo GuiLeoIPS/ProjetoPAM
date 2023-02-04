@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -74,7 +75,7 @@ public class UsersActivity extends AppCompatActivity {
 
         userAdapter = new UserAdapter(UsersActivity.this, this, user_id, user_name, user_password, user_email, user_number);
         recyclerview.setAdapter(userAdapter);
-        GridLayoutManager manager = new GridLayoutManager(UsersActivity.this, 2, GridLayoutManager.VERTICAL, false);
+        LinearLayoutManager manager = new LinearLayoutManager(UsersActivity.this);
         recyclerview.setLayoutManager(manager);
         // recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
