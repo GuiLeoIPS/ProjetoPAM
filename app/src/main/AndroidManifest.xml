@@ -13,16 +13,19 @@
         android:theme="@style/Theme.ProjetoPAM"
         tools:targetApi="31">
         <activity
-<<<<<<< Updated upstream
             android:name=".HomeClienteActivity"
-=======
-            android:name=".UserUpdateActivity"
->>>>>>> Stashed changes
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+    <activity
+        android:name=".UserUpdateActivity"
+        android:exported="false">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="" />
+    </activity>
         <activity
             android:name=".UsersActivity"
             android:exported="false">
