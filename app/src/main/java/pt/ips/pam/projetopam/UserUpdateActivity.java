@@ -34,6 +34,10 @@ public class UserUpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UserUpdateActivity.this);
+                name = name_input.getText().toString().trim();
+                password = password_input.getText().toString().trim();
+                email = email_input.getText().toString().trim();
+                number = number_input.getText().toString().trim();
                 myDB.updateUserData(id, name, password, email, number);
 
             }

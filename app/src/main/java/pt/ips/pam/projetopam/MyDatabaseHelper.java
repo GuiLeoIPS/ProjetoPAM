@@ -215,8 +215,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_EMAIL, email);
         cv.put(COLUMN_NUMBER, number);
 
-
-        long result = db.update(TABLE_USER, cv, "idUser=?", new String[]{row_id});
+        long result = db.update(TABLE_USER, cv, COLUMN_IDUSER+"=?", new String[]{row_id});
         if(result == -1){
             Toast.makeText(context, R.string.operationFailed, Toast.LENGTH_SHORT).show();
         }else {
