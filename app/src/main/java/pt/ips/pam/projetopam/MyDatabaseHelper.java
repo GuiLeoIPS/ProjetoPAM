@@ -48,13 +48,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_USER_TABLE = "CREATE TABLE user ( " +
-                "idUser INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "username TEXT NOT NULL, "+
-                "email TEXT, "+
-                "password TEXT NOT NULL, "+
-                "number TEXT, "+
-                "admin Integer)";
+        String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER +
+                " (" + COLUMN_IDUSER + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_USERNAME + " TEXT, " +
+                COLUMN_EMAIL + " TEXT, " +
+                COLUMN_PASSWORD + " TEXT, " +
+                COLUMN_NUMBER + " INTEGER, " +
+                COLUMN_ADMIN + " INTEGER);";
 
         // create USER table
         db.execSQL(CREATE_USER_TABLE);
@@ -84,6 +84,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_USERNAME, user.getUsername());            // get username
         values.put(COLUMN_PASSWORD, user.getPassword());            // get pass
+        values.put(COLUMN_EMAIL, user.getEmail());
+        values.put(COLUMN_NUMBER, user.getNumber());
+        values.put(COLUMN_ADMIN, 0);
 
         db.insert(TABLE_USER, null, values); // key/value -> keys = column names/ values = column values
         db.close();

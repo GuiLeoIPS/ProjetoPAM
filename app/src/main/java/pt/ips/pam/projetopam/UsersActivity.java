@@ -99,7 +99,7 @@ public class UsersActivity extends AppCompatActivity {
                 user_name.add(cursor.getString(1));
                 user_password.add(cursor.getString(2));
                 user_email.add(cursor.getString(3));
-                user_number.add(cursor.getString(3));
+                user_number.add(cursor.getString(4));
             }
         }
 
