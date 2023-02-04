@@ -7,12 +7,12 @@ public class User {
     private String email;
     private String password;
     private String number; //Phone number
-    private boolean admin;
+    private int admin;
 
     public User() {
     }
 
-    public User(String username, String email, String password, String number, boolean admin) {
+    public User(String username, String email, String password, String number, int admin) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -35,8 +35,8 @@ public class User {
     public String getNumber() {return number;}
     public void setNumber(String number) {this.number = number;}
 
-    public boolean isAdmin() {return admin;}
-    public void setAdmin(boolean admin) {this.admin = admin;}
+    public int isAdmin() {return admin;}
+    public void setAdmin(int admin) {this.admin = admin;}
 
     @Override
     public String toString() {

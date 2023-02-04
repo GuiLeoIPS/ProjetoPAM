@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     MyDatabaseHelper db = new MyDatabaseHelper(RegisterActivity.this);
 
-                    User user = new User(name, mail, pass, number, false);
+                    User user = new User(name, mail, pass, number, 0);
 
                     if(username.getText().toString().isEmpty() || email.getText().toString().isEmpty() || password.getText().toString().isEmpty() || phoneNumber.getText().toString().isEmpty()) {
                         Toast.makeText(RegisterActivity.this, R.string.emptyStrings, Toast.LENGTH_SHORT).show();

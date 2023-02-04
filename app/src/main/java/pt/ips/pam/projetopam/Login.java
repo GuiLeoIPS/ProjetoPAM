@@ -57,15 +57,17 @@ public class Login extends AppCompatActivity {
                     EditText editPass = (EditText) findViewById(R.id.editPassword);
                     String nome = editNome.getText().toString();
                     String pass = editPass.getText().toString();
-
-                    // get all users
                     List<User> list = db.getAllUsers();
 
-                    if(searchIfIsAdmin(list, nome, pass)) {
+                    if(searchIfIsAdmin(list, nome, pass) == 1) {
                         Toast.makeText(Login.this, "É admin", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Login.this, HomeActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(Login.this, HomeClienteActivity.class);
+                        startActivity(intent);
                     }
-                    Intent intent = new Intent(Login.this, HomeActivity.class);
-                    startActivity(intent);
+
                 };
             }
         });
@@ -122,14 +124,14 @@ public class Login extends AppCompatActivity {
         return indiceDelete;
     }
 
-    private boolean searchIfIsAdmin(List<User> list, String username, String password) {
-        boolean indice = false;
+    private int searchIfIsAdmin(List<User> list, String username, String password) {
+        int indice = 0;
         int id = -1;
         for (User usr : list) {
-            Toast.makeText(this, "" + usr.isAdmin(), Toast.LENGTH_SHORT).show();
+
             if (usr.getUsername().equals(username) && usr.getPassword().equals(password)) {
                 indice = usr.isAdmin();
-
+                Toast.makeText(this, "" + usr.isAdmin(), Toast.LENGTH_SHORT).show();
                 id = usr.getIdUser();
                 Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
             }
@@ -162,10 +164,9 @@ public class Login extends AppCompatActivity {
     }
 
     private void PopulateUsers() {
-        User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", true);
-        Toast.makeText(this, ""+ primeiroUser.isAdmin(), Toast.LENGTH_SHORT).show();
-        User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", true);
-        User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", false);
+        User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", 1);
+        User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", 1);
+        User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", 0);
         db.addUser(primeiroUser);
         db.addUser(segundoUser);
         db.addUser(terceiroUser);

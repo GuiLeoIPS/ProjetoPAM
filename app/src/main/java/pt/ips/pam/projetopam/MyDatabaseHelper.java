@@ -86,7 +86,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PASSWORD, user.getPassword());            // get pass
         values.put(COLUMN_EMAIL, user.getEmail());
         values.put(COLUMN_NUMBER, user.getNumber());
-        values.put(COLUMN_ADMIN, 0);
+        values.put(COLUMN_ADMIN, user.isAdmin());
 
         db.insert(TABLE_USER, null, values); // key/value -> keys = column names/ values = column values
         db.close();
@@ -105,6 +105,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 user = new User();
                 user.setUsername(cursor.getString(1));
                 user.setPassword(cursor.getString(3));
+                user.setAdmin(cursor.getInt(5));
                 users.add(user);
             } while (cursor.moveToNext());
         }
