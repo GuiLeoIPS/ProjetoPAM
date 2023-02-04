@@ -180,4 +180,22 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    void updateUserData(String row_id, String name, String password, String email, String number){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_USERNAME, name);
+        cv.put(COLUMN_PASSWORD, password);
+        cv.put(COLUMN_EMAIL, email);
+        cv.put(COLUMN_NUMBER, number);
+
+
+        long result = db.update(TABLE_USER, cv, "idUser=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, R.string.operationFailed, Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, R.string.updateBookSucceed, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }
