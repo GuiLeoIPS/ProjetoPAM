@@ -50,9 +50,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER +
                 " (" + COLUMN_IDUSER + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_USERNAME + " TEXT, " +
+                COLUMN_USERNAME + " TEXT NOT NULL, " +
                 COLUMN_EMAIL + " TEXT, " +
-                COLUMN_PASSWORD + " TEXT, " +
+                COLUMN_PASSWORD + " TEXT NOT NULL, " +
                 COLUMN_NUMBER + " INTEGER, " +
                 COLUMN_ADMIN + " INTEGER);";
 
