@@ -52,10 +52,21 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 if(pesquisarUser() == 1) {
                     SaveValues();
+
+                    EditText editNome = (EditText) findViewById(R.id.editUsername);
+                    EditText editPass = (EditText) findViewById(R.id.editPassword);
+                    String nome = editNome.getText().toString();
+                    String pass = editPass.getText().toString();
+
+                    // get all users
+                    List<User> list = db.getAllUsers();
+
+                    if(searchIfIsAdmin(list, nome, pass)) {
+                        Toast.makeText(Login.this, "É admin", Toast.LENGTH_SHORT).show();
+                    }
                     Intent intent = new Intent(Login.this, HomeActivity.class);
                     startActivity(intent);
                 };
-
             }
         });
 
@@ -111,6 +122,23 @@ public class Login extends AppCompatActivity {
         return indiceDelete;
     }
 
+    private boolean searchIfIsAdmin(List<User> list, String username, String password) {
+        boolean indice = false;
+        int id = -1;
+        for (User usr : list) {
+            Toast.makeText(this, "" + usr.isAdmin(), Toast.LENGTH_SHORT).show();
+            if (usr.getUsername().equals(username) && usr.getPassword().equals(password)) {
+                indice = usr.isAdmin();
+
+                id = usr.getIdUser();
+                Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
+            }
+            //indiceDelete = list.indexOf(usr);
+        }
+
+        return indice;
+    }
+
     private int pesquisarUser() {
 
         EditText editNome = (EditText) findViewById(R.id.editUsername);
@@ -135,6 +163,7 @@ public class Login extends AppCompatActivity {
 
     private void PopulateUsers() {
         User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", true);
+        Toast.makeText(this, ""+ primeiroUser.isAdmin(), Toast.LENGTH_SHORT).show();
         User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", true);
         User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", false);
         db.addUser(primeiroUser);
