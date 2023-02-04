@@ -164,5 +164,16 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    Cursor readAllDataUsers(){
+        String query = "SELECT * FROM user";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+
 
 }
