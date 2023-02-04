@@ -13,6 +13,27 @@
         android:theme="@style/Theme.ProjetoPAM"
         tools:targetApi="31">
         <activity
+            android:name=".InfoBooksActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".BooksClienteActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UsersClienteActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".HomeClienteActivity"
             android:exported="false">
             <meta-data

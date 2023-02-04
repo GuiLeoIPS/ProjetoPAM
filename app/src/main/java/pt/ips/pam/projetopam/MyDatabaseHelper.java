@@ -103,6 +103,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 user = new User();
+                user.setIdUser(cursor.getInt(0));
                 user.setUsername(cursor.getString(1));
                 user.setPassword(cursor.getString(3));
                 user.setAdmin(cursor.getInt(5));
@@ -112,6 +113,32 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         Log.d("getAllUsers()", users.toString());
         return users;
+    }
+
+
+    public User getUserById(int id) {
+
+
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_IDUSER + "='"+ id+"'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        User user = null;
+        if (cursor.moveToFirst()) {
+            do {
+                user = new User();
+                user.setIdUser(cursor.getInt(0));
+                user.setUsername(cursor.getString(1));
+                user.setEmail(cursor.getString(2));
+                user.setPassword(cursor.getString(3));
+                user.setNumber(cursor.getString(4));
+                user.setAdmin(cursor.getInt(5));
+                
+            } while (cursor.moveToNext());
+        }
+
+        Log.d("getUserById()", user.toString());
+        return user;
     }
 
     public void addBook (String title, String author, int pages){

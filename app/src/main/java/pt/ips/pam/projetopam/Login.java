@@ -64,8 +64,11 @@ public class Login extends AppCompatActivity {
                         Intent intent = new Intent(Login.this, HomeActivity.class);
                         startActivity(intent);
                     } else {
-                        Intent intent = new Intent(Login.this, HomeClienteActivity.class);
-                        startActivity(intent);
+                        int idUser = findIdUser(list, nome, pass);
+                        Toast.makeText(Login.this, ""+idUser, Toast.LENGTH_SHORT).show();
+                        Intent intent2 = new Intent(Login.this, HomeClienteActivity.class);
+                        intent2.putExtra("id", String.valueOf(idUser));
+                        startActivity(intent2);
                     }
 
                 };
@@ -131,14 +134,25 @@ public class Login extends AppCompatActivity {
 
             if (usr.getUsername().equals(username) && usr.getPassword().equals(password)) {
                 indice = usr.isAdmin();
-                Toast.makeText(this, "" + usr.isAdmin(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "" + usr.isAdmin(), Toast.LENGTH_SHORT).show();
                 id = usr.getIdUser();
-                Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
             }
             //indiceDelete = list.indexOf(usr);
         }
 
         return indice;
+    }
+    private int findIdUser(List<User> list, String username, String password) {
+        int indice = 0;
+        int id = -1;
+        for (User usr : list) {
+            if (usr.getUsername().equals(username) && usr.getPassword().equals(password)) {
+                id = usr.getIdUser();
+                //Toast.makeText(this, ""+id, Toast.LENGTH_SHORT).show();
+                return id;
+            }
+        }
+        return id;
     }
 
     private int pesquisarUser() {
