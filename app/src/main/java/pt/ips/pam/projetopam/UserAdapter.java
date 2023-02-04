@@ -37,7 +37,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     @Override
     public UserAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.my_row, parent, false);
+        View view = inflater.inflate(R.layout.user_row, parent, false);
         return new UserAdapter.MyViewHolder(view);
 
     }
@@ -77,11 +77,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            user_id_text = itemView.findViewById(R.id.book_id_txt);
-            user_name_text = itemView.findViewById(R.id.book_title_txt);
-            user_password_text = itemView.findViewById(R.id.book_author_txt);
-            user_email_text = itemView.findViewById(R.id.book_pages_txt);
-            user_number_text = itemView.findViewById(R.id.book_pages_txt);
+            user_id_text = itemView.findViewById(R.id.user_id_txt);
+            user_name_text = itemView.findViewById(R.id.user_name_txt);
+            user_password_text = itemView.findViewById(R.id.user_password_txt);
+            user_email_text = itemView.findViewById(R.id.user_email_txt);
+            user_number_text = itemView.findViewById(R.id.user_number_txt);
             mainlayout = itemView.findViewById(R.id.mainLayout);
         }
     }
