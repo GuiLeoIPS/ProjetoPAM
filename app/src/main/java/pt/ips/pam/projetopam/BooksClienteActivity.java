@@ -3,6 +3,7 @@ package pt.ips.pam.projetopam;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -77,7 +78,9 @@ public class BooksClienteActivity extends AppCompatActivity {
 
         booksAdapter = new BooksClienteAdapter(BooksClienteActivity.this, this, book_id, book_title, book_author, book_pages);
         recyclerview.setAdapter(booksAdapter);
-        GridLayoutManager manager = new GridLayoutManager(BooksClienteActivity.this, 2, GridLayoutManager.VERTICAL, false);
+//        GridLayoutManager manager = new GridLayoutManager(BooksClienteActivity.this, 2, GridLayoutManager.VERTICAL, false);
+//        recyclerview.setLayoutManager(manager);
+        LinearLayoutManager manager = new LinearLayoutManager(BooksClienteActivity.this);
         recyclerview.setLayoutManager(manager);
     }
 

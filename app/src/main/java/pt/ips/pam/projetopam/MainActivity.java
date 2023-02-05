@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -86,9 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
         customAdapter = new CustomAdapter(MainActivity.this, this, book_id, book_title, book_author, book_pages);
         recyclerview.setAdapter(customAdapter);
-        GridLayoutManager manager = new GridLayoutManager(MainActivity.this, 2, GridLayoutManager.VERTICAL, false);
+//        GridLayoutManager manager = new GridLayoutManager(MainActivity.this, 2, GridLayoutManager.VERTICAL, false);
+//        recyclerview.setLayoutManager(manager);
+        LinearLayoutManager manager = new LinearLayoutManager(MainActivity.this);
         recyclerview.setLayoutManager(manager);
-       // recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        //recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
     }
 

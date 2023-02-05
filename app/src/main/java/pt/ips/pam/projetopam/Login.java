@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
 
         db = new MyDatabaseHelper(Login.this);
         readValues();
-        PopulateUsers();
+        //PopulateUsers();
 
         //Icon
         Drawable draw = ResourcesCompat.getDrawable(getResources(), R.drawable.libraryiconpng, this.getTheme());

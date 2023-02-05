@@ -61,6 +61,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // create USER table
         db.execSQL(CREATE_USER_TABLE);
 
+        User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", 1);
+        User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", 1);
+        User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", 0);
+        addUser(primeiroUser);
+        addUser(segundoUser);
+        addUser(terceiroUser);
 
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -236,5 +242,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+
+    public void funcaoNova() {
+        String nova;
+    }
 
 }
