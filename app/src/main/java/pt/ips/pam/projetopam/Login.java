@@ -36,7 +36,7 @@ public class Login extends AppCompatActivity {
         PopulateUsers();
 
         //Icon
-        Drawable draw = ResourcesCompat.getDrawable(getResources(), R.drawable.libraryicon, this.getTheme());
+        Drawable draw = ResourcesCompat.getDrawable(getResources(), R.drawable.libraryiconpng, this.getTheme());
         assert draw != null; //Verifica se o mesmo não está vazio
 
         Bitmap bitmap = ((BitmapDrawable) draw).getBitmap();
@@ -184,6 +184,10 @@ public class Login extends AppCompatActivity {
         db.addUser(primeiroUser);
         db.addUser(segundoUser);
         db.addUser(terceiroUser);
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 }

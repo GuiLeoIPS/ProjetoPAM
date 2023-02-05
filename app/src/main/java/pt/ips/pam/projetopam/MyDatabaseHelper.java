@@ -48,6 +48,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER +
                 " (" + COLUMN_IDUSER + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_USERNAME + " TEXT NOT NULL, " +
@@ -58,6 +60,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         // create USER table
         db.execSQL(CREATE_USER_TABLE);
+
 
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +

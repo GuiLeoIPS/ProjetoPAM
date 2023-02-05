@@ -1,11 +1,22 @@
 <resources>
-    <string name="app_name">ProjetoPAM</string>
+    <string name="app_name">Open Library</string>
+    <string name="labelRegister">Register User</string>
+    <string name="labelLogin">Open Library</string>
+    <string name="labelHome">Home</string>
+    <string name="labelProfile">Profile</string>
+    <string name="labelAdd">Add Book</string>
+    <string name="labelBook">Book Library</string>
+    <string name="labelInfoBook">Book Information</string>
+    <string name="pagesBook">Pages</string>
+    <string name="authorBook">Author</string>
+    <string name="titleBook">Title</string>
     <string name="searchBook">Search Book</string>
     <string name="insertUsername">Your username</string>
     <string name="insertPassword">Your password</string>
     <string name="insertEmail">Your email</string>
     <string name="insertPhoneNumber">Your phone number</string>
     <string name="libraryName">Library Name</string>
+    <string name="profileForm">Profile</string>
     <string name="btnLogin">Login</string>
     <string name="btnRegister">Register</string>
     <string name="foundUser">Welcome</string>
@@ -20,10 +31,12 @@
     <string name="createdUser">Your account has been created</string>
     <string name="registerTitle">Register</string>
     <string name="bookAuthor">Book Author</string>
+    <string name="book">Book</string>
     <string name="bookTitle">Book Title</string>
     <string name="bookPages">Number of pages</string>
     <string name="bookBtnAdd">Add</string>
     <string name="bookBtnUpdate">Update</string>
+    <string name="bookBtnEdit">Edit</string>
     <string name="bookBtnDelete">Delete</string>
     <string name="confirmBookDelete">DELETE</string>
     <string name="confirmDialogBookDelete">Are you sure you want to delete</string>

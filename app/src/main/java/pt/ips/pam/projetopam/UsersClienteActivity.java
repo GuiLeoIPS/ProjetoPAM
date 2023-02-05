@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -64,7 +66,18 @@ public class UsersClienteActivity extends AppCompatActivity {
             }
         });
 
+        Button btnEdit = (Button) findViewById(R.id.btnChange);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent intent = new Intent(UsersClienteActivity.this, UserClienteUpdateActivity.class);
+                intent.putExtra("id", String.valueOf(idUser));
+                startActivity(intent);
+
+
+            }
+        });
     }
 
     void getAndSetIntentData(){

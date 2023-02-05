@@ -13,40 +13,51 @@
         android:theme="@style/Theme.ProjetoPAM"
         tools:targetApi="31">
         <activity
-            android:name=".InfoBooksActivity"
+            android:name=".UserClienteUpdateActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".InfoBooksActivity"
+            android:exported="false"
+            android:label="@string/labelInfoBook">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".BooksClienteActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/labelBook">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".UsersClienteActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/labelProfile">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".HomeClienteActivity"
+            android:exported="false"
+            android:label="@string/labelHome">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UserUpdateActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-    <activity
-        android:name=".UserUpdateActivity"
-        android:exported="false">
-        <meta-data
-            android:name="android.app.lib_name"
-            android:value="" />
-    </activity>
         <activity
             android:name=".UsersActivity"
             android:exported="false">
@@ -56,7 +67,8 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/labelHome">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -77,7 +89,8 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/labelRegister">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -92,7 +105,7 @@
         <activity
             android:name=".Login"
             android:exported="true"
-            android:label="Open Library">
+            android:label="@string/labelLogin">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -100,7 +113,7 @@
         <activity
             android:name=".AddActivity"
             android:exported="false"
-            android:label="Add Book"
+            android:label="@string/labelAdd"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
@@ -109,7 +122,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Book Library">
+            android:label="@string/labelBook">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

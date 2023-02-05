@@ -64,19 +64,12 @@ public class HomeClienteActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
     }
 
     void getAndSetIntentData(){
         if(getIntent().hasExtra("id")){
 
-            Toast.makeText(this, "I have the id " + getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "I have the id " + getIntent().getStringExtra("id"), Toast.LENGTH_SHORT).show();
             id = getIntent().getStringExtra("id");
             User user = db.getUserById(Integer.parseInt(id));
             txtid.setText(id);
