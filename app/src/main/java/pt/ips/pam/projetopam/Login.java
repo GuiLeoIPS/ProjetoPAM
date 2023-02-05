@@ -60,12 +60,12 @@ public class Login extends AppCompatActivity {
                     List<User> list = db.getAllUsers();
 
                     if(searchIfIsAdmin(list, nome, pass) == 1) {
-                        Toast.makeText(Login.this, "É admin", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Login.this, "É admin", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Login.this, HomeActivity.class);
                         startActivity(intent);
                     } else {
                         int idUser = findIdUser(list, nome, pass);
-                        Toast.makeText(Login.this, ""+idUser, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Login.this, ""+idUser, Toast.LENGTH_SHORT).show();
                         Intent intent2 = new Intent(Login.this, HomeClienteActivity.class);
                         intent2.putExtra("id", String.valueOf(idUser));
                         startActivity(intent2);
