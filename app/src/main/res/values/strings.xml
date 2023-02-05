@@ -7,6 +7,7 @@
     <string name="labelAdd">Add Book</string>
     <string name="labelBook">Book Library</string>
     <string name="labelInfoBook">Book Information</string>
+    <string name="labelUsers">Users</string>
     <string name="homeAdminText">Welcome, Admin \n\nPlease use the bottom navigation menu to use the app</string>
     <string name="homeClienteText">Welcome, User\n\nPlease use the bottom navigation menu to use the app</string>
     <string name="pagesBook">Pages</string>

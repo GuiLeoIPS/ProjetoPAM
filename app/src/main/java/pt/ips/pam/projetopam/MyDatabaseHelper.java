@@ -61,12 +61,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // create USER table
         db.execSQL(CREATE_USER_TABLE);
 
-        User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", 1);
-        User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", 1);
-        User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", 0);
-        addUser(primeiroUser);
-        addUser(segundoUser);
-        addUser(terceiroUser);
+   //     User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", 1);
+   //     User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", 0);
+
+        String queryadd = "INSERT INTO "+ TABLE_USER +" ("+ COLUMN_USERNAME + ", "+ COLUMN_EMAIL +", "+ COLUMN_PASSWORD +", "+ COLUMN_NUMBER +", "+ COLUMN_ADMIN+") " +
+                "VALUES ('Guilherme', 'gui@gmail.com','adm321',987654231, 1)," +
+                "('Leonardo', 'leo@gmail.com','adm123',912345687, 1)," +
+                "('Miguel', 'mig@gmail.com','cliente',965432178, 0);";
+        db.execSQL(queryadd);
 
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -74,6 +76,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_AUTHOR + " TEXT, " +
                 COLUMN_PAGES + " INTEGER);";
         db.execSQL(query);
+
+        String queryaddbooks = "INSERT INTO "+ TABLE_NAME +" ("+ COLUMN_TITLE + ", "+ COLUMN_AUTHOR +", "+ COLUMN_PAGES +") " +
+                "VALUES ('Livro1', 'Saramago',100)," +
+                "('P.A.M', 'Socrates',200)," +
+                "('P.I.S', 'Fernando Pessoa',69);";
+        db.execSQL(queryaddbooks);
 
     }
 

@@ -33,7 +33,6 @@ public class Login extends AppCompatActivity {
 
         db = new MyDatabaseHelper(Login.this);
         readValues();
-        //PopulateUsers();
 
         //Icon
         Drawable draw = ResourcesCompat.getDrawable(getResources(), R.drawable.libraryiconpng, this.getTheme());
@@ -175,15 +174,6 @@ public class Login extends AppCompatActivity {
             return 0;
         }
 
-    }
-
-    private void PopulateUsers() {
-        User primeiroUser = new User("Guilherme", "gui@gmail.com", "adm321", "987654231", 1);
-        User segundoUser = new User("Leonardo", "leo@gmail.com", "adm123", "912345687", 1);
-        User terceiroUser = new User("Miguel", "mig@gmail.com", "cliente", "965432178", 0);
-        db.addUser(primeiroUser);
-        db.addUser(segundoUser);
-        db.addUser(terceiroUser);
     }
 
     @Override

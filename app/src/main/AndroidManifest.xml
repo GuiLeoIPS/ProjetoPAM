@@ -60,6 +60,7 @@
         </activity>
         <activity
             android:name=".UsersActivity"
+            android:label="@string/labelUsers"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

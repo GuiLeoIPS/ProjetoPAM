@@ -2,8 +2,12 @@ package pt.ips.pam.projetopam;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +29,17 @@ public class UsersClienteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users_cliente);
+
+        //Icon
+        Drawable draw = ResourcesCompat.getDrawable(getResources(), R.drawable.libraryiconpng, this.getTheme());
+        assert draw != null; //Verifica se o mesmo não está vazio
+
+        Bitmap bitmap = ((BitmapDrawable) draw).getBitmap();
+        Drawable icon = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmap, 50, 40, true));
+
+        getSupportActionBar().setHomeAsUpIndicator(icon);        //colocar o novo icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //Enable para mostrar o novo icon
+        //-------------
 
         db = new MyDatabaseHelper(UsersClienteActivity.this);
 

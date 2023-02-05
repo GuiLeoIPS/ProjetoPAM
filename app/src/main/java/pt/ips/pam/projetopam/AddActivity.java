@@ -20,6 +20,8 @@ public class AddActivity extends AppCompatActivity {
         Intent intent = new Intent(AddActivity.this, MainActivity.class);
 
 
+
+
         title_input = findViewById(R.id.title_input);
         author_input = findViewById(R.id.author_input);
         pages_input = findViewById(R.id.pages_input);
