@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Base de dados
         db = new MyDatabaseHelper(Login.this);
         readValues();
 
@@ -45,6 +46,7 @@ public class Login extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);   //Enable para mostrar o novo icon
         //-------------
 
+        //Botão Login
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +76,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        //Botão de Register
         Button btnRegister = (Button) findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,11 +84,11 @@ public class Login extends AppCompatActivity {
 
                     Intent intent = new Intent(Login.this, RegisterActivity.class);
                     startActivity(intent);
-
             }
         });
     }
 
+    //Salvar valores em SharedPreferences
     private void SaveValues() {
         EditText editName = findViewById(R.id.editUsername);
         EditText editPass = findViewById(R.id.editPassword);
@@ -103,6 +106,7 @@ public class Login extends AppCompatActivity {
 
     }
 
+    //Ler valores
     private void readValues() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
