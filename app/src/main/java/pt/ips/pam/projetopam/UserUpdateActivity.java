@@ -1,7 +1,10 @@
 package pt.ips.pam.projetopam;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +15,7 @@ import android.widget.Toast;
 public class UserUpdateActivity extends AppCompatActivity {
 
     EditText name_input, password_input, email_input, number_input;
-    Button update_button;
+    Button update_button, delete_button;
 
     String id, name, password, email, number;
 
@@ -27,8 +30,14 @@ public class UserUpdateActivity extends AppCompatActivity {
         email_input = findViewById(R.id.email_input);
         number_input = findViewById(R.id.number_input);
         update_button = findViewById(R.id.update_button);
+        delete_button = findViewById(R.id.delete_button);
 
         getAndSetIntentData();
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(name);
+        }
 
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +52,12 @@ public class UserUpdateActivity extends AppCompatActivity {
             }
         });
 
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
+            }
+        });
 
 
 
@@ -68,5 +83,26 @@ public class UserUpdateActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, R.string.emptyData, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    void confirmDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getText(R.string.confirmBookDelete) +" " + name + " ? ");
+        builder.setMessage(getResources().getText(R.string.confirmDialogBookDelete)+ " " + name + " ? ");
+        builder.setPositiveButton( R.string.confirmYes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UserUpdateActivity.this);
+                myDB.deleteOneRowUser(id);
+                finish();
+            }
+        });
+        builder.setNegativeButton(R.string.confirmNo, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
     }
 }

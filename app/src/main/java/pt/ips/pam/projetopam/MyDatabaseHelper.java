@@ -223,5 +223,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    void deleteOneRowUser(String rows_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_USER,COLUMN_IDUSER+"=?", new String[]{rows_id});
+        if(result == -1){
+            Toast.makeText(context, R.string.operationFailed, Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, R.string.deleteBookSucceed, Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }
