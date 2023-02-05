@@ -8,8 +8,8 @@
     <string name="labelBook">Biblioteca</string>
     <string name="labelInfoBook">Informação</string>
     <string name="labelUsers">Utilizadores</string>
-    <string name="homeAdminText">Bem-vindo, Administrador\\n\\nPor favor utilize a barra de navegação abaixo para usar a aplicação</string>
-    <string name="homeClienteText">Bem-vindo, Utilizador\\n\\nPor favor utilize a barra de navegação abaixo para usar a aplicação</string>
+    <string name="homeAdminText">Bem-vindo, Administrador \n\nPor favor utilize a barra de navegação abaixo para usar a aplicação</string>
+    <string name="homeClienteText">Bem-vindo, Utilizador \n\nPor favor utilize a barra de navegação abaixo para usar a aplicação</string>
     <string name="pagesBook">Páginas</string>
     <string name="authorBook">Autor</string>
     <string name="titleBook">Título</string>
