@@ -46,4 +46,8 @@
     <string name="confirmDialogBookDelete">"Tens a certeza que pretendes apagar "</string>
     <string name="confirmYes">Sim</string>
     <string name="confirmNo">Não</string>
+    <string name="menuHome">Principal</string>
+    <string name="menuUsers">Utilizadores</string>
+    <string name="menuUser">Perfil</string>
+    <string name="menuBooks">Livros</string>
 </resources>

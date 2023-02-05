@@ -45,5 +45,9 @@
     <string name="confirmDialogBookDelete">Are you sure you want to delete</string>
     <string name="confirmYes">Yes</string>
     <string name="confirmNo">No</string>
+    <string name="menuHome">Home</string>
+    <string name="menuUsers">Users</string>
+    <string name="menuUser">Profile</string>
+    <string name="menuBooks">Books</string>
 
 </resources>
