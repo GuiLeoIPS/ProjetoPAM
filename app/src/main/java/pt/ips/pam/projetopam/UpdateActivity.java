@@ -49,8 +49,15 @@ public class UpdateActivity extends AppCompatActivity {
                 title = title_input.getText().toString().trim();
                 author = author_input.getText().toString().trim();
                 pages = pages_input.getText().toString().trim();
-                myDB.updateData(id, title, author, pages);
-                finish();
+
+                if(title_input.getText().toString().isEmpty() || author_input.getText().toString().isEmpty() || pages_input.getText().toString().isEmpty()) {
+                    Toast.makeText(UpdateActivity.this, R.string.emptyStrings, Toast.LENGTH_SHORT).show();
+                } else {
+                    myDB.updateData(id, title, author, pages);
+                    finish();
+                }
+
+
             }
         });
 

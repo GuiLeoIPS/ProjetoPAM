@@ -47,7 +47,14 @@ public class UserUpdateActivity extends AppCompatActivity {
                 password = password_input.getText().toString().trim();
                 email = email_input.getText().toString().trim();
                 number = number_input.getText().toString().trim();
-                myDB.updateUserData(id, name, password, email, number);
+
+                if(name_input.getText().toString().isEmpty() || password_input.getText().toString().isEmpty() || email_input.getText().toString().isEmpty() || number_input.getText().toString().isEmpty()) {
+                    Toast.makeText(UserUpdateActivity.this, R.string.emptyStrings, Toast.LENGTH_SHORT).show();
+                } else {
+                    myDB.updateUserData(id, name, password, email, number);
+                    finish();
+                }
+
 
             }
         });

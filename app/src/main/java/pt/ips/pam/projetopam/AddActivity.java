@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -29,12 +30,19 @@ public class AddActivity extends AppCompatActivity {
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 MyDatabaseHelper myDB = new MyDatabaseHelper(AddActivity.this);
-                myDB.addBook(title_input.getText().toString().trim(),
-                        author_input.getText().toString().trim(),
-                        Integer.valueOf(pages_input.getText().toString().trim()));
-                finish();
-                startActivity(intent);
+
+                if(title_input.getText().toString().isEmpty() || author_input.getText().toString().isEmpty() || pages_input.getText().toString().isEmpty()) {
+                    Toast.makeText(AddActivity.this, R.string.emptyStrings, Toast.LENGTH_SHORT).show();
+                } else {
+                    myDB.addBook(title_input.getText().toString().trim(),
+                            author_input.getText().toString().trim(),
+                            Integer.valueOf(pages_input.getText().toString().trim()));
+                    finish();
+                    startActivity(intent);
+                }
+
             }
         });
     }

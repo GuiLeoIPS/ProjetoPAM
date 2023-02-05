@@ -55,10 +55,17 @@ public class UserClienteUpdateActivity extends AppCompatActivity {
                 password = editPass.getText().toString().trim();
                 email = editEmail.getText().toString().trim();
                 number = editPhone.getText().toString().trim();
-                db.updateUserData(idUser, name, password, email, number);
 
-                Intent intent = new Intent(UserClienteUpdateActivity.this, Login.class);
-                startActivity(intent);
+                if(editUsername.getText().toString().isEmpty() || editPass.getText().toString().isEmpty() || editEmail.getText().toString().isEmpty() || editPhone.getText().toString().isEmpty()) {
+                    Toast.makeText(UserClienteUpdateActivity.this, R.string.emptyStrings, Toast.LENGTH_SHORT).show();
+                } else {
+                    db.updateUserData(idUser, name, password, email, number);
+                    Intent intent = new Intent(UserClienteUpdateActivity.this, Login.class);
+                    startActivity(intent);
+                }
+
+
+
             }
         });
     }
