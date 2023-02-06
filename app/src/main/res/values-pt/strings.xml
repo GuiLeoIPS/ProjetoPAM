@@ -50,4 +50,5 @@
     <string name="menuUsers">Utilizadores</string>
     <string name="menuUser">Perfil</string>
     <string name="menuBooks">Livros</string>
+    <string name="welcome_to">Bem-vindo à</string>
 </resources>

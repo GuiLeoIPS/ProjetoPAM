@@ -49,5 +49,6 @@
     <string name="menuUsers">Users</string>
     <string name="menuUser">Profile</string>
     <string name="menuBooks">Books</string>
+    <string name="welcome_to">Welcome to</string>
 
 </resources>
