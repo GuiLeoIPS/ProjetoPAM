@@ -34,12 +34,22 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "Books";
     private static final String COLUMN_ID = "id";
+    private static final String COLUMN_ISBN = "isbn";
     private static final String COLUMN_TITLE = "book_title";
     private static final String COLUMN_AUTHOR = "book_author";
     private static final String COLUMN_PAGES = "book_pages";
+    private static final String COLUMN_EDITORA = "Editor";
+    //---------------------Categoria------------------------------
 
+    private static final String TABLE_CATEGORIA = "categoria";
+    private static final String COLUMN_IDCATEGORIA = "idCategoria";
+    private static final String COLUMN_NAME_CATEGORIA = "nameCategoria";
 
+    //------------------Livros_Categoria-------------------------
 
+    private static final String TABLE_LIVRO_CATEGORIA = "livro_categoria";
+    private static final String COLUMN_ID_LIVRO = "idLivro";
+    private static final String COLUMN_ID_CATEGORIA = "idCategoria";
 
     MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -83,6 +93,18 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 "('P.I.S', 'Fernando Pessoa',69);";
         db.execSQL(queryaddbooks);
 
+        String queryCategoria = "CREATE TABLE "+TABLE_CATEGORIA +
+                "("+ COLUMN_IDCATEGORIA + " INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                COLUMN_NAME_CATEGORIA + " TEXT);";
+        db.execSQL(queryCategoria);
+
+        /*String queryLivroCategoria = "CREATE TABLE " + TABLE_LIVRO_CATEGORIA +
+                "("+ COLUMN_ID_LIVRO + " INTEGER, " +
+                COLUMN_ID_CATEGORIA + " INTEGER, " +
+                "FOREIGN KEY ("+ COLUMN_ID_LIVRO + ") REFERENCES " + TABLE_NAME + "("+COLUMN_ID+"), "+
+                "FOREIGN KEY ("+ COLUMN_ID_CATEGORIA + ") REFERENCES " + TABLE_CATEGORIA + "("+COLUMN_IDCATEGORIA+"), "+
+                "PRIMARY KEY("+ COLUMN_ID_LIVRO + ", " + COLUMN_ID_CATEGORIA + ");";
+        db.execSQL(queryLivroCategoria);*/
     }
 
     @Override

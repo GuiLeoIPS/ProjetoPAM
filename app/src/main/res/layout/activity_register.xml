@@ -65,7 +65,7 @@
         android:drawablePadding="12dp"
         android:ems="10"
         android:hint="@string/insertPhoneNumber"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
