@@ -27,7 +27,7 @@
         android:id="@+id/author_input2"
         android:layout_width="322dp"
         android:layout_height="55dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/custom_input"
         android:ems="10"
